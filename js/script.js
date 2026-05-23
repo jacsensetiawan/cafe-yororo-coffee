@@ -49,3 +49,28 @@ document.addEventListener("click", function (e) {
     shoppingCart.classList.remove("active");
   }
 });
+
+//modal box
+const itemDetailModal = document.querySelector("#item-detail-modal");
+const itemDetailButton = document.querySelectorAll(".item-detail-button");
+
+// ketika ikon detail diklik
+itemDetailButton.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal.style.display = "flex";
+    e.preventDefault();
+  };
+});
+
+// klik tombol close modal
+document.querySelector(".modal .close-icon").onclick = (e) => {
+  itemDetailModal.style.display = "none";
+  e.preventDefault();
+};
+
+// klik diluar container modal close
+window.onclick = (e) => {
+  if (e.target === itemDetailModal) {
+    itemDetailModal.style.display = "none";
+  }
+};
